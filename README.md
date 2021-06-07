@@ -9,7 +9,7 @@ The Annual Developer Survey examines all aspects of the developer experience fro
 
 **Packages:** Pandas, Numpy, Matplotlib(Version 3.4.1), Seaborn, Glob
 
-**Custom Modules:**Project1Functions.py
+**Custom Modules:** Project1Functions.py
 
 **Medium Blog Post:** [What makes developers happy?](https://eden-ong.medium.com/are-programmers-happy-with-their-profession-163d69f9d937)
 
