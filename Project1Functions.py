@@ -8,9 +8,9 @@ def autolabel(bars):
 
     # Using Matplotlib's annotate function and
     # passing the coordinates where the annotation shall be done
-    # x-coordinate: bar.get_x() + bar.get_width() / 2
-    # y-coordinate: bar.get_height()
-    # free space to be left to make graph pleasing: (0, 8)
+    # x-coordinate: bar.get_width()
+    # y-coordinate: bar.get_y() + bar.get_height() / 2
+    # free space to be left to make graph pleasing: (5, 0)
     # ha and va stand for the horizontal and vertical alignment
 
     bars.annotate(str(np.round(bar.get_width(), 1)) + '%',
@@ -63,14 +63,13 @@ def total_count(df, col1, col2, look_for):
 def clean(df, col, vals, label):
   '''
   INPUT
-      df - a dataframe holding the EducationTypes column
-      title - string the title of your plot
-      axis - axis object
-      plot - bool providing whether or not you want a plot back
+      df - a dataframe holding the column you want to look through
+      col - the column name you want to look through
+      vals - a list of strings you want to search for in each row of df[col]
+      label - col's label
 
   OUTPUT
-      study_df - a dataframe with the count of how many individuals
-      Displays a plot of pretty things related to the CousinEducation column.
+      props_study_df - a dataframe with the proportion of total individuals
   '''
   study = df[col].value_counts().reset_index()
   study.rename(columns={'index': label, col: 'count'}, inplace=True)
@@ -86,10 +85,11 @@ def total_count_modified(df, col1, col2, hue, look_for):
   df - the pandas dataframe you want to search
   col1 - the column name you want to look through
   col2 - the column you want to count values from
+  hue - SurveyYear column
   look_for - a list of strings you want to search for in each row of df[col]
 
   OUTPUT:
-  new_df - a dataframe of each look_for with the count of how often it shows up
+  combined_df - a dataframe of each look_for with the count of how often it shows up for each survey years
   '''
 
   combined_df = pd.DataFrame()
